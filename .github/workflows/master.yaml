@@ -32,22 +32,22 @@ jobs:
           repository: ${{github.event.pull_request.head.repo.full_name}}
       - name: Build binary
         run: make build
-  tests:
-    runs-on: ubuntu-latest
-    needs: gofmt-check
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{github.event.pull_request.head.ref}}
-          repository: ${{github.event.pull_request.head.repo.full_name}}
-          persist-credentials: false
-      - name: Run tests
-        env:
-          TODOCHECK_ENV: "ci"
-          TESTS_GITHUB_APITOKEN: ${{ secrets.TESTS_GITHUB_APITOKEN }}
-          TESTS_GITLAB_APITOKEN: ${{ secrets.TESTS_GITLAB_APITOKEN }}
-          TESTS_PIVOTALTRACKER_APITOKEN: ${{ secrets.TESTS_PIVOTALTRACKER_APITOKEN }}
-          TESTS_REDMINE_PRIVATE_APITOKEN: ${{ secrets.TESTS_REDMINE_PRIVATE_APITOKEN }}
-          TESTS_YOUTRACK_PUBLIC_INCLOUD_APITOKEN: ${{ secrets.TESTS_YOUTRACK_PUBLIC_INCLOUD_APITOKEN }}
-          TESTS_AZUREBOARDS_PRIVATE_APITOKEN: ${{ secrets.TESTS_AZUREBOARDS_PRIVATE_APITOKEN }}
-        run: make test
+  # tests:
+  #   runs-on: ubuntu-latest
+  #   needs: gofmt-check
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         ref: ${{github.event.pull_request.head.ref}}
+  #         repository: ${{github.event.pull_request.head.repo.full_name}}
+  #         persist-credentials: false
+  #     - name: Run tests
+  #       env:
+  #         TODOCHECK_ENV: "ci"
+  #         TESTS_GITHUB_APITOKEN: ${{ secrets.TESTS_GITHUB_APITOKEN }}
+  #         TESTS_GITLAB_APITOKEN: ${{ secrets.TESTS_GITLAB_APITOKEN }}
+  #         TESTS_PIVOTALTRACKER_APITOKEN: ${{ secrets.TESTS_PIVOTALTRACKER_APITOKEN }}
+  #         TESTS_REDMINE_PRIVATE_APITOKEN: ${{ secrets.TESTS_REDMINE_PRIVATE_APITOKEN }}
+  #         TESTS_YOUTRACK_PUBLIC_INCLOUD_APITOKEN: ${{ secrets.TESTS_YOUTRACK_PUBLIC_INCLOUD_APITOKEN }}
+  #         TESTS_AZUREBOARDS_PRIVATE_APITOKEN: ${{ secrets.TESTS_AZUREBOARDS_PRIVATE_APITOKEN }}
+  #       run: make test
