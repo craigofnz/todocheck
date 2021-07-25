@@ -171,11 +171,9 @@ var supportedMatchers = map[string]*matcherFactory{
 	".bash": scriptsMatcherFactory,
 	".zsh":  scriptsMatcherFactory,
 	".R":    scriptsMatcherFactory,
-	".ps1":  scriptsMatcherFactory,
-	".psm1": scriptsMatcherFactory,
-	".psd1": scriptsMatcherFactory,
-
-
+    ".ps1":  scriptsMatcherFactory,
+    ".psm1": scriptsMatcherFactory,
+    ".psd1": scriptsMatcherFactory,
 
 	// file types, supporting php comments
 	".php": phpMatcherFactory,
